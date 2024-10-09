@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Pizza</title>
+    <link rel="stylesheet" href="orderstyle.css">
+</head>
+<body>
+
+    <h1>Order Your Pizza</h1>
+    <form id="orderForm" onsubmit="placeOrder(event)">
+        <select id="pizzaSelection" required>
+            <option value="">Select a Pizza</option>
+            <option value="margherita">Margherita</option>
+            <option value="pepperoni">Pepperoni</option>
+            <option value="veggie">Veggie</option>
+        </select>
+        <input type="number" id="quantity" placeholder="Quantity" required>
+        <button type="submit">Order</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
