@@ -1,49 +1,39 @@
-# 🍕 Pizza Delivery App
+# Pizza Delivery App
 
-A full-stack pizza delivery web application that allows users to browse pizzas, place orders, and track their delivery. Built using Node.js, Express, MongoDB, and modern web development practices.
+A small pizza ordering app: sign up, log in, look at the menu and place an order.
 
-## 🚀 Features
+Backend is Node.js and Express with MongoDB (Mongoose). The front end is plain HTML, CSS and JavaScript in `frontend/`.
 
-- 🧑‍💼 User Authentication (Register/Login)
-- 🍕 Menu Management
-- 🛒 Add to Cart & Checkout
-- 📦 Order Placement & Tracking
-- 🔒 Secure Routes with Role-Based Access (User/Admin)
-- 📊 Admin Dashboard to Manage Orders and Menu Items
-- 📱 Responsive UI
+## API
 
-## 🛠️ Tech Stack
+| Method | Path | What it does |
+| --- | --- | --- |
+| POST | `/api/auth/signup` | creates a user, password hashed with bcrypt |
+| POST | `/api/auth/login` | checks the password and returns a JWT (1 hour) |
+| GET | `/api/pizzas` | lists pizzas from the database |
+| POST | `/api/pizzas/order` | takes a pizza and a quantity and confirms the order |
 
-**Frontend:**
-- HTML, CSS, JavaScript 
-- EJS 
+## Running it
 
-**Backend:**
-- Node.js
-- Express.js
+```bash
+npm install
+```
 
-**Database:**
-- MongoDB with Mongoose
+Create a `.env` file:
 
-**Authentication:**
-- JWT / Sessions (based on your implementation)
-- Bcrypt for password hashing
+```
+MONGO_URI=mongodb://127.0.0.1:27017/pizza
+JWT_SECRET=anything-long-and-random
+```
 
-## 📁 Project Structure
+Then:
 
-pizza-delivery-app/
-├── controllers/
-│ ├── authController.js
-│ ├── orderController.js
-├── models/
-│ ├── user.js
-│ ├── order.js
-├── routes/
-│ ├── auth.js
-│ ├── orders.js
-├── views/
-├── public/
-├── config/
-├── middleware/
-├── server.js / app.js
+```bash
+npm start   # runs on http://localhost:5000
+```
 
+## Next steps
+
+- Save orders to the database instead of only confirming them.
+- Load the menu from `/api/pizzas` on the front end (it's hard-coded right now).
+- Add an order history page.
